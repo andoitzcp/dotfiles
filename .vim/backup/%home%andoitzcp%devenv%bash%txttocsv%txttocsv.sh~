@@ -1,3 +1,0 @@
-cat \
-    $(cat $TXTFILE | iconv -f ISO-8859-1 -t UTF-8 | tr -d ' ' | tr -d '.' | tr ',' '.' | tr '|' ',' | cut -c 2- | rev | cut -c 3- | rev | tail -n +6) \
-    $(cat header | tr '\n' ',')
