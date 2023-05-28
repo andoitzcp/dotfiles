@@ -45,9 +45,6 @@ set tabstop=4
 " Indent automatically.
 set autoindent
 
-" Use the appropriate number of spaces to insert a tap in insert mode.
-set expandtab
-
 " Show command in the last line of the screen.
 set showcmd
 
@@ -62,12 +59,6 @@ set hlsearch
 
 " Set the number of lines to save in history.
 set history=8000
-
-" Back up files.
-set backup
-
-" Set a directory to save file backups with full path.
-set backupdir=~/.vim/backup//
 
 " Undo changes to files after saving them.
 set undofile
