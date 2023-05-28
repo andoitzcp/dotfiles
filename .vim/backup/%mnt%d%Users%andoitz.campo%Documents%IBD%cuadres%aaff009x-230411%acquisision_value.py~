@@ -1,0 +1,89 @@
+import pandas as pd
+
+# Data types specifications
+sap_dt = {'COMPANY': str,
+          'ORDER': str,
+          'CL_MOV': str,
+          'VAL': float}
+
+sac_dt = {'COMPANY': str,
+          'CECO': str,
+          'VAL': float,
+          'QUANTITY': float}
+
+clmov_dt = {'CL_MOV': str,
+            'GR_MOV': str}
+
+orcc_dt = {'ORDER': str,
+            'CECO': str}
+
+# Put here the CSV files that are going to be analyzed
+dfp = pd.read_csv('./export_sap_2016_2016_v1.csv', sep=";", decimal=",", dtype=sap_dt)
+dfc = pd.read_csv('./export_sac_2016_2016_v1.csv', sep=";", decimal=",", dtype=sac_dt)
+dfcl = pd.read_csv('./export_sap_clmov_excluidos.csv', sep=";", decimal=",", dtype=clmov_dt)
+dfoc = pd.read_csv('./export_sap_ceco_order.csv', sep=";", decimal=",", dtype=orcc_dt)
+
+# Security forbiden element lists
+f_CECOs = ['AB000',
+           'AB001',
+           'AB002',
+           'AB100',
+           'AC000',
+           'AC100',
+           'AD000',
+           'AE000',
+           'AE800',
+           'AJ000',
+           'AK000',
+           'CB220',
+           'CF92E',
+           'CH211',
+           'CL010',
+           'DI300',
+           'GE000',
+           'GF030',
+           'GF300',
+           'GF400',
+           'GF500',
+           'GI000',
+           'GI600']
+
+f_CEBEs = ['AB000',
+           'AB002',
+           'AB100',
+           'AC000',
+           'AC100',
+           'AD000',
+           'AE000',
+           'AE800',
+           'AJ000',
+           'CL030',
+           'CL040',
+           'CL060',
+           'SPRA100001',
+           'SPRA300005',
+           'SPRA300007',
+           'ZR000']
+
+# Join tables
+dfp = pd.merge(dfp, dfoc, on='ORDER', how='left')
+
+# Drop forbidden elements of the lists above
+dfp = dfp[~dfp['CL_MOV'].isin(dfcl['CL_MOV'])]
+
+# Transformation of SAP export
+outp = dfp.loc[:,['CECO', 'VALP']].groupby(['CECO']).sum().reset_index()
+
+# Transformation of SAC export
+outc = dfc.loc[:,['CECO', 'VALC']].groupby(['CECO']).sum().reset_index()
+
+# Merge both SAP and SAC transformed tables and calculate the difference
+out = pd.merge(outc, outp, on='CECO', how='inner')
+out['diff'] = out['VALC'] - out['VALP']
+
+# Some formating
+pd.set_option('display.max_rows', outp.shape[0]+1)
+pd.set_option('display.max_rows', outc.shape[0]+1)
+pd.options.display.float_format = '{:,.2f}'.format
+
+print(out)

@@ -1,0 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                    ::::::::  :::::::::     */
+/*   yaxlftt_util.c                                     :+:      :+:    :+:   */
+/*                                                   +:+        +:+    +:+    */
+/*   By: andoitzcp <andoitzcp@gmail.com>             +#+        +#++:++#+     */
+/*                                                   +#+        +#+           */
+/*   Created: 2023/04/29 23:25:29 by andoitzcp       #+#    #+# #+#           */
+/*   Updated: 2023/04/30 00:04:01 by acampo-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "yaxlftt.h"
+
+void    *ft_searchnode(td *node, char *item)
+{
+    unsigned int    ls;
+    unsigned int    lt;
+
+	while (node)
+	{
+        if (!strncmp(node->en, item, ls))
+            return (node);
+		node = node->p;
+	}
+    return (node);
+}
+
+void    *ft_appendnode(td *head, td *node)
+{
+    td  *tmp;
+
+    tmp = head;
+    while (tmp)
+        tmp = tmp->p;
+    tmp = node->p;
+    node->p = NULL;
+}
+
+void    ft_freenode(td *node)
+{
+    free(node->id);
+    free(node->en);
+    free(node->es);
+    free(node->p);
+    node->id = NULL;
+    node->en = NULL;
+    node->es = NULL;
+    node->p = NULL;
+}
+
+void    ft_freellist(td *head)
+{
+    void    *tmp;
+
+    while(head)
+    {
+        tmp = head;
+        head = head->p;
+        freenode(tmp);
+    }
+}
+
+void	*ft_nodegen(char *bfr)
+{
+    td			*node;
+    void		*tmp;
+    ssize_t  	nls;
+	
+	printf("flag 1.1\n");
+	nls = ft_tblshape(bfr);
+	printf("flag 1.2\n");
+	if (nls < 0)
+		return (NULL);
+	tmp = NULL;
+	printf("flag 1.3\n");
+	while (nls > 0)
+	{
+		printf("flag 1.4\n");
+    	node = malloc(sizeof(td));
+		if (!node)
+			return(NULL);
+		node->id = ft_getnextlmnt(bfr);
+		node->en = ft_getnextlmnt(bfr);
+		node->es = ft_getnextlmnt(bfr);
+		node->p = tmp;
+		tmp = node;
+		nls--;
+    }
+	return(node);
+}

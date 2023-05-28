@@ -1,0 +1,169 @@
+import pandas as pd
+from alive_progress import alive_bar
+
+# Path to files root directory
+path = '/mnt/d/Users/andoitz.campo/Documents/IBD/cuadres/aaff001dsub-230503/'
+
+# Exported CSV list to be read
+dict_xprt = {'p': 'export_sap_anlc.csv',
+            'p_anla': 'export_sap_anla.csv',
+            'c': 'export_sac.csv'}
+
+# CSV list of filter to be applied
+dict_fltr = {'drop_ceco': 'forbiden_cecos.csv',
+            'drop_cebe': 'forbiden_cebes.csv'}
+
+# Test definitions
+dict_test = {'Amount': {},
+             'Quantity': {}}
+
+# Agroupations
+groups = ['COMPANY', 'AAFFT']
+
+# Data types specifications
+datatypes = {'COMPANY': str,
+          'AAFF': str,
+          'AAFFT': str,
+          'DEAKT': str,
+          'UNIT': str,
+          'MOVT': str,
+          'MOVG': str,
+          'CLASS': str,
+          'PKANSW': float,
+          'PKAUFW': float,
+          'MKINVZ': float,
+          'MKMAFA': float,
+          'PAUFWB': float,
+          'PANSWL': float,
+          'MINVZM': float,
+          'PAUFWV': float,
+          'MINVZV': float,
+          'PAUFWL': float,
+          'MINVZL': float,
+          'QUANTITY' : float,
+          'CTEST1' : float,
+          'CTEST2' : float,
+          'CTEST3' : float}
+
+dict_dfs = {}
+# Function that reads the handled CSV files.
+def ft_readfiles(path, dict_xprt, dict_fltr, datatypes):
+    n = len(dict_xprt) + len(dict_fltr)
+    print("Reading CSV exported files")
+    with alive_bar(n, bar='classic2', spinner='twirls') as bar:
+        for key in dict_xprt:
+            d = path + dict_xprt[key]
+            df = pd.read_csv(d, sep=";", decimal=",", dtype=datatypes)
+            dict_dfs[key] = df
+            print(key, " readed. File name:", dict_xprt[key])
+            bar()
+        for key in dict_fltr:
+            d = path + dict_fltr[key]
+            df = pd.read_csv(d, sep=";", dtype=datatypes)
+            dict_dfs[key] = df
+            print(key, " readed. File name:", dict_fltr[key])
+            bar()
+
+def ft_joindfs(left_df, right_df, key, how):
+    with alive_bar(1, bar=None, spinner='twirls') as bar:
+        p = pd.merge(dict_dfs[left_df],
+                     dict_dfs[right_df],
+                     on=key,
+                     how=how,
+                     suffixes=('', '_DROP')).filter(regex='^(?!.*_DROP)')
+        tmp_dict = {left_df: p}
+        dict_dfs.update(tmp_dict)
+        print(left_df, 'and', right_df, 'joined at', key, 'as', how)
+        bar()
+
+def ft_droplmnts(main_dfn, drop_dfn):
+    with alive_bar(1, bar=None, spinner='twirls') as bar:
+        tmp_mdf = dict_dfs[main_dfn].copy()
+        tmp_ddf = dict_dfs[drop_dfn].copy()
+        header = list(tmp_ddf.columns.values).pop(0)
+        main_df = tmp_mdf[~tmp_mdf[header].isin(tmp_ddf[header])]
+        del tmp_mdf, tmp_ddf
+        dict_dfs.update({main_dfn: main_df})
+        print('Listed', header, 'droped.')
+        bar()
+
+def ft_utest(test, tmp_dfp, src_dfc, fp, fc):
+    cols_p = groups.copy()
+    cols_p.append(fp)
+    cols_c = groups.copy()
+    cols_c.append(fc)
+    dfp = tmp_dfp.copy()
+    dfp = tmp_dfp.loc[:, cols_p]
+    dfc = src_dfc.copy()
+    dfc = src_dfc.loc[:, cols_c]
+    dict_test[test].update({'p': dfp})
+    dict_test[test].update({'c': dfc})
+    dict_test[test].update({'fp': fp})
+    dict_test[test].update({'fc': fc})
+    del tmp_dfp
+
+def ft_dfcmp():
+    n = len(dict_test) * len(groups)
+    with alive_bar(n, bar='classic2', spinner='twirls') as bar:
+        for test in dict_test:
+            print(f'\t {test}.\n')
+            for group in groups:
+                out_name = './out/' + test + group + '.csv'
+                tmp_dict = dict_test[test]
+                tmp_dfc = tmp_dict['c'].groupby(group).sum(numeric_only=True).reset_index()
+                tmp_dfp = tmp_dict['p'].groupby(group).sum(numeric_only=True).reset_index()
+                cmp = pd.merge(tmp_dfc,
+                               tmp_dfp,
+                               on=group,
+                               how='left')
+                cmp['DIFF'] = cmp[tmp_dict['fc']] - cmp[tmp_dict['fp']]
+                tot_rows = cmp['DIFF'].count()
+                ok_rows = cmp.loc[cmp['DIFF'].abs() < 1, 'DIFF'].count()
+                if ok_rows == tot_rows:
+                    isok = '\033[92m[OK]\033[0m'
+                else:
+                    isok = '\033[91m[NOK]\033[0m'
+                cmp.to_csv(out_name)
+                print(f'\t\t {group}: {ok_rows}/{tot_rows}\t{isok}\n')
+                del cmp, tmp_dfc, tmp_dfp
+                bar()
+
+### Script instructions starts here ###
+ft_readfiles(path, dict_xprt, dict_fltr, datatypes) # Reads CSVs
+ft_joindfs('p', 'p_anla', 'AAFF', 'left') # joins tables
+#ft_droplmnts('p', 'drop_ceco') # Drops CECOs
+#ft_droplmnts('p', 'drop_cebe') # Drops CEBEs
+#ft_droplmnts('p_qty', 'drop_ceco') # Drops CECOs
+#ft_droplmnts('p_qty', 'drop_cebe') # Drops CEBEs
+
+#Transformations
+# TEST 1: Actual
+tmp_df = dict_dfs['p'].copy()
+tmp_df['AMOUNT'] = tmp_df['PKANSW'] + \
+        tmp_df['PKAUFW'] - \
+        tmp_df['MKINVZ'] - \
+        tmp_df['MKMAFA'] + \
+        tmp_df['PAUFWB'] + \
+        tmp_df['PANSWL'] - \
+        tmp_df['MINVZM'] + \
+        tmp_df['PAUFWV'] - \
+        tmp_df['MINVZV'] + \
+        tmp_df['PAUFWL'] - \
+        tmp_df['MINVZL']
+ft_utest('Amount', tmp_df, dict_dfs['c'], 'AMOUNT', 'CTEST1')
+
+# TEST 2: Budget 
+tmp_df = dict_dfs['p'].copy()
+tmp_df['P'] = tmp_df.loc[tmp_df['DEAKT'] == "NAN", 'QUANTITY']
+print(tmp_df)
+ft_utest('Quantity', tmp_df, dict_dfs['c'], 'QUANTITY', 'CTEST3')
+
+#print(dict_test)
+ft_dfcmp()
+
+# Some formating
+#pd.set_option('display.max_rows', outp.shape[0]+1)
+#pd.set_option('display.max_rows', outc.shape[0]+1)
+#pd.options.display.float_format = '{:,.2f}'.format
+
+#print(out)

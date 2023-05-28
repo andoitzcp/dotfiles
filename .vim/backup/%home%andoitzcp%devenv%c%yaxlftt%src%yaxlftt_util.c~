@@ -1,0 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                    ::::::::  :::::::::     */
+/*   yaxlftt_util.c                                     :+:      :+:    :+:   */
+/*                                                   +:+        +:+    +:+    */
+/*   By: andoitzcp <andoitzcp@gmail.com>             +#+        +#++:++#+     */
+/*                                                   +#+        +#+           */
+/*   Created: 2023/04/29 23:25:29 by andoitzcp       #+#    #+# #+#           */
+/*   Updated: 2023/04/30 00:04:01 by acampo-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "yaxlftt.h"
+
+char	*ft_getnextlmnt(char *bfr)
+{
+	int				len;
+	char			*lmnt;
+	static size_t	i;
+
+	len = 0;
+	while (bfr[i] && bfr[i] != '\t' && bfr[i] != '\n')
+	{
+		i++;
+		len++;
+	}
+	lmnt = strndup(bfr + i - len, len);
+	while (bfr[i]  == '\t' || bfr[i] == '\n')
+		i++;
+	printf("lmnt:%s\ti:%d\n", lmnt, i);
+	return(lmnt);
+}
+
+ssize_t	ft_tblshape(char *bfr)
+{
+	int		tabs;
+	ssize_t	nls;
+
+	nls = 0;
+	while (*bfr)
+	{
+		tabs = 0;
+		while (*bfr && *bfr != '\n')
+		{
+			while (*bfr && *bfr != '\n' && *bfr != '\t')
+				bfr++;
+			tabs++;
+			while (*bfr == '\t')
+				bfr++;
+		}
+		printf("tabs:\t%d\n", tabs);
+		if (tabs != FIELDS)
+			return (-1);
+		nls++;
+		while (*bfr == '\n')
+			bfr++;
+	}
+	return(nls);
+}

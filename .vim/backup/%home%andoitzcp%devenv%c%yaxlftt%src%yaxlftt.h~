@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                    ::::::::  :::::::::     */
+/*   yaxlftt.h                                          :+:      :+:    :+:   */
+/*                                                   +:+        +:+    +:+    */
+/*   By: andoitzcp <andoitzcp@gmail.com>             +#+        +#++:++#+     */
+/*                                                   +#+        +#+           */
+/*   Created: 2023/04/28 20:46:38 by andoitzcp       #+#    #+# #+#           */
+/*   Updated: 2023/05/02 07:32:45 by acampo-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <string.h>
+#include <strings.h>
+
+#define BFR_SIZE 1048576
+#define SRCINIT "<source>"
+#define SRCEND "</source>"
+#define TRGTINIT "<target>"
+#define TRGTEND "</target>"
+#define LSRCINIT 8
+#define LSRCEND 9
+#define FIELDS 3
+
+void	*ft_nodegen(char *bfr);
+char	*ft_getnextlmnt(char *bfr);
+
+typedef	struct			transdict{
+	char				*id;
+	char				*en;
+	char				*es;
+	struct transdict	*p;
+}						td;
+
+void    ft_freenode(td *node);
+void    ft_freelist(td *node);
+void    *ft_appendnode(td *head, td *node);
+void	*ft_searchnode(td *node, char *item);
