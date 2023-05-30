@@ -90,6 +90,10 @@ set mousehide
 " Set colorscheme.
 colorscheme molokai
 
+" Set up 42 Stdheader variables
+let g:user42 = 'acampo-p'
+let g:mail42 = 'acampo-p@student.42urduliz.com'
+
 " Greatly enhance command line tab completion.
 set wildmenu
 
