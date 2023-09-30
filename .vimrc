@@ -45,6 +45,9 @@ set tabstop=4
 " Indent automatically.
 set autoindent
 
+" Use the appropriate number of spaces to insert a tap in insert mode.
+set expandtab
+
 " Show command in the last line of the screen.
 set showcmd
 
@@ -59,6 +62,12 @@ set hlsearch
 
 " Set the number of lines to save in history.
 set history=8000
+
+" Back up files.
+set backup
+
+" Set a directory to save file backups with full path.
+set backupdir=~/.vim/backup//
 
 " Undo changes to files after saving them.
 set undofile
@@ -81,24 +90,20 @@ set autoread
 " Switch to another buffer without saving.
 set hidden
 
-" Set text width
-set textwidth=80
-
 " Hide mouse when typing.
 set mousehide
 
 " Set colorscheme.
 colorscheme molokai
 
-" Set up 42 Stdheader variables
-let g:user42 = 'acampo-p'
-let g:mail42 = 'acampo-p@student.42urduliz.com'
-
 " Greatly enhance command line tab completion.
 set wildmenu
 
 " Set wildmode.
 set wildmode=list:longest
+
+" Set vimwiki folding method to list
+let g:vimwiki_folding = 'list'
 
 " Ignore files.
 set wildignore=*.jpg,*.mp4,*.zip,*.iso,*.pdf,*.pyc,*.odt,*.png,*.gif,*.tar,*.gz,*.xz,*.bz2,*.tgz,*.db,*.exe,*.odt,*.xlsx,*.docx,*.tar,*.rar,*.img,*.odt,*.m4a,*.bmp,*.ogg,*.mp3,*.gzip,*.flv,*.deb,*.rpm
@@ -112,6 +117,8 @@ Plug 'preservim/vimux'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'vimwiki/vimwiki'
+
 
 call plug#end()
 
