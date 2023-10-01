@@ -109,6 +109,9 @@ let g:vimwiki_folding = 'list'
 let g:user42 = "andoitzcp"
 let g:mail42 = 'andoitzcp@gmail.com'
 
+" Set bacground to dark for tmux colors
+set background=dark
+
 " Ignore files.
 set wildignore=*.jpg,*.mp4,*.zip,*.iso,*.pdf,*.pyc,*.odt,*.png,*.gif,*.tar,*.gz,*.xz,*.bz2,*.tgz,*.db,*.exe,*.odt,*.xlsx,*.docx,*.tar,*.rar,*.img,*.odt,*.m4a,*.bmp,*.ogg,*.mp3,*.gzip,*.flv,*.deb,*.rpm
 
