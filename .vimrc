@@ -105,6 +105,10 @@ set wildmode=list:longest
 " Set vimwiki folding method to list
 let g:vimwiki_folding = 'list'
 
+" Set Vim header variables
+let g:user42 = "andoitzcp"
+let g:mail42 = 'andoitzcp@gmail.com'
+
 " Ignore files.
 set wildignore=*.jpg,*.mp4,*.zip,*.iso,*.pdf,*.pyc,*.odt,*.png,*.gif,*.tar,*.gz,*.xz,*.bz2,*.tgz,*.db,*.exe,*.odt,*.xlsx,*.docx,*.tar,*.rar,*.img,*.odt,*.m4a,*.bmp,*.ogg,*.mp3,*.gzip,*.flv,*.deb,*.rpm
 
@@ -118,6 +122,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vimwiki/vimwiki'
+Plug '42Paris/42Header'
+Plug 'andoitzcp/Myheader'
 
 
 call plug#end()
@@ -298,5 +304,14 @@ endif
     set laststatus=2
 
 " }}}
+"
+" USER DEFINED COMANDS    ------------------------------------------------ {{{
+
+    " Define somo command shortcuts to insert tables in Vimwiki
+    command VimwikiTableLeg r ~/vimwiki/diary/tbl_legday
+    command VimwikiTablePull r ~/vimwiki/diary/tbl_pullday
+    command VimwikiTablePush r ~/vimwiki/diary/tbl_pushday
+" }}}
+"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
