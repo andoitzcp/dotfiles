@@ -115,6 +115,9 @@ set background=dark
 " Ignore files.
 set wildignore=*.jpg,*.mp4,*.zip,*.iso,*.pdf,*.pyc,*.odt,*.png,*.gif,*.tar,*.gz,*.xz,*.bz2,*.tgz,*.db,*.exe,*.odt,*.xlsx,*.docx,*.tar,*.rar,*.img,*.odt,*.m4a,*.bmp,*.ogg,*.mp3,*.gzip,*.flv,*.deb,*.rpm
 
+" Set Zathura as the default pdf viewer for vimtex
+let g:vimtex_view_method = 'zathura'
+
 " PLUGINS ---------------------------------------------------------------- {{{
 
 call plug#begin()
@@ -127,6 +130,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vimwiki/vimwiki'
 Plug '42Paris/42Header'
 Plug 'andoitzcp/Myheader'
+Plug 'lervag/vimtex'
 
 
 call plug#end()
@@ -315,6 +319,31 @@ endif
     command VimwikiTablePull r ~/vimwiki/diary/tbl_pullday
     command VimwikiTablePush r ~/vimwiki/diary/tbl_pushday
 " }}}
+
+" VIMWIKI----------------------------------------------------------------- {{{
+
+    " Define somo command shortcuts to insert tables in Vimwiki
+  function! VimwikiLinkHandler(link)
+    " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+    "   1) [[vfile:~/Code/PythonProject/abc123.py]]
+    "   2) [[vfile:./|Wiki Home]]
+    let link = a:link
+    if link =~# '^vfile:'
+      let link = link[1:]
+    else
+      return 0
+    endif
+    let link_infos = vimwiki#base#resolve_link(link)
+    if link_infos.filename == ''
+      echomsg 'Vimwiki Error: Unable to resolve link!'
+      return 0
+    else
+      exe 'tabnew ' . fnameescape(link_infos.filename)
+      return 1
+    endif
+  endfunction
+" }}}
+"
 "
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
