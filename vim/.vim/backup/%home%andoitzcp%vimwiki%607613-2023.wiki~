@@ -1,0 +1,81 @@
+= SUMMARY =
+
+CODE: 706613/2023
+DESCRIPTION: Error while linking hirarchies in live connection models
+STATUS: OPEN
+RESPONSIBLE: Andoitz
+AFFECTED ITEM: I.006 SD1.
+EXPLANATION:
+
+= APPOINTMENTS =
+
+= LOG =
+
+# [[/diary/2023-10-05]]
+    # Estado Actual:
+        # Abir historia.
+        # Abrir menu vinculacion de dimesiones.
+        # Vinculacion EXP000X -> INV000X rota.
+    # Acciones:
+        # Relinkar dimensiones rotas.
+        # Guardar historia.
+        # Refrescar, haciendo data->refresh.
+        # dimensiones vuelven a estar rotas.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones se arreglan solas.
+        # Refrescar, haciendo data->refresh.
+        # dimensiones vuelven a estar rotas.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones se arreglan solas.
+        # Recargar pagina, con F5.
+        # Eliminar filtro Sociedad 8302 del prompt.
+        # las dimensiones siguen estando bien.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # dimensiones vuelven a estar rotas.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones se arreglan solas.
+        # Abrir prompt SIN recargar pagina, F5
+        # Filtrar por Sociedad 8302.
+        # las dimensiones siguen estando bien.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # Aplicar filtro de pagina Negocio 01.
+        # las dimensiones siguen estando bien.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones siguen estando bien.
+        # Abrir prompt SIN recargar pagina, F5
+        # Eliminar Jerarquia ClaCo del prompt.
+        # Se rompe el link de la jerarquia ClaCo.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # link jerarquia ClaCo sigue roto.
+        # Arreglar link jerearquiia ClaCo.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones siguen estando bien.
+        # Abrir prompt SIN recargar pagina, F5
+        # Aplicar filtro de jerarquia ClaCo del prompt.
+        # las dimensiones siguen estando bien.
+        # Guardar historia.
+        # Recargar pagina, con F5.
+        # las dimensiones siguen estando bien.
+        # Se cambia filtro ClacCo indicador
+        # las dimensiones siguen estando bien.
+    # Conclusion:
+        # Parece que el cambio en las jerarquias es lo que rompe la vinculacionde dimensiones.
+        # Las jerarquias tienen un proceso automatizado de actualizacioon que puede estar rompiendo el informe.
+        # Se solicita al equipo tecnico replicar la actualizacion de la jerarqua para poder replicar el problema.
+        
+= APPENDIX = 
+
+I) BROKEN LINKED DIMENSIONS.
+| EXP000X                   | INV000X             |
+|---------------------------|---------------------|
+| Cost Element -Hierarchy   | 2CZKCOSTELEMENT (!) |
+| Profit Center - Hierarchy | 2CZKQINV000X-PR (!) |
+| Cost Center - Hierarchy   | 2CZKQINV000X-CO (!) |

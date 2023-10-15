@@ -1,0 +1,20 @@
+= SUMMARY =
+
+# CODE: ZKQEXP023X
+# DESCRIPTION: Horas Real / Real Año Anterior (CECO/CEBE) OPEX
+# SECURITY: CECO y CEBE
+# Z_SECURITY: NONE
+
+= LOG =
+
+# 2023-10-02
+    # Iñigo notifica un error a la hora de ejecutar la CDS.
+    # Se prueba a crear una nueva historia, y a modificar las variables del prompt entrando y saliendo de las historia.
+    # El error no se condigue replicar
+    # CONT-1666 Se pide un transporte a SP1 por si ha ocuurido algun error en el transporte.
+    # Transportada a produccion.
+    # Vuelve a funcionar correctamente.
+
+= TASKS =
+
+- [X] Probar cds EXP023X en prod. A ver si me da error.

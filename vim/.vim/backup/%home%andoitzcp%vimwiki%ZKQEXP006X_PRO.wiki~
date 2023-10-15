@@ -1,0 +1,26 @@
+
+= SUMMARY =
+
+# CODE: ZKQEXP006_PRO
+# DESCRIPTION: Gasto por Actividad Real / Plan
+# SECURITY: CLACO, CECO y CEBE
+# Z_SECURITY: CECO y CEBE
+
+= DESCRIPTION =
+
+FORK de la CDS 
+
+= PURPOSE =
+
+= LOG =
+
+# [[/diary/2023-10-02]]
+    # Salidas Validadas.
+    # Cuadres Validados por Jon
+    # Transporte solicitado a Prod.
+
+= TASKS =
+
+- [X] Validar cds EXP006X_PRO.
+    - [X] Salidas.
+    - [X] Cuadres (Jon).
