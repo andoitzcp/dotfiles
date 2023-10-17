@@ -1,0 +1,9 @@
+1.  Reporting del balance: adaptación de la CDS para aplicar la misma lógica de los informes estándar de SAP
+    1. 
+2.  Reported (Real + mes estimado): repaso de la solución aplicada y prueba de otras alternativas
+3.  Análisis resultados de pruebas de estrés en SP1 vs SI1
+4.  Evoluciones temporales: indicadores vs transposición a filas
+5.  Año regulatorio
+6.  Notificación en los informes de registros no visualizados por seguridad
+7.  Eliminar campos del prompt/CDS como opción a mejora de rendimiento/consumo de máquina
+8.  Plan Proyecto Reporting SAC 2024 – 2026

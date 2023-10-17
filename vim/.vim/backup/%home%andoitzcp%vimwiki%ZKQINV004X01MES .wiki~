@@ -1,0 +1,26 @@
+= SUMMARY =
+
+# CODE: ZKQINV004X01MES
+# DESCRIPTION:Inversión - Evolución mensual  (1 año)
+# SECURITY: CLACO, CECO y CEBE
+# Z_SECURITY: 
+
+= DESCRIPTION =
+
+
+= PURPOSE =
+
+
+= LOG =
+
+# [[/diary/2023-10-09]]
+    # Salidasr realizadas
+    # Cuadres realizados
+    # Se ha solicitado volver a aplicar la seguridad
+
+= TASKS =
+
+- [X] Validar cds INV004X01MES.(jon)
+    - [X] Salidas.
+    - [X] Cuadres.
+    - [X] Pedir volve a aplicar seguridad.
