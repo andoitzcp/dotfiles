@@ -1,0 +1,58 @@
+= INDEX =
+
+1. Enumerations and Conbinatorics
+    # [[vfile:./subject1/main.tex|(SOURCE)]]
+    # [[file:./subject1/main.pdf|(PDF)]]
+    # [[file:./subject1/unir.pdf|(UNIR)]]
+2. Enumerations and Conbinatorics
+    # [[vfile:./subject2/main.tex|(SOURCE)]]
+    # [[file:./subject2/main.pdf|(PDF)]]
+    # [[file:./subject2/unir.pdf|(UNIR)]]
+3. Numerical Sets
+4. Polinomyals and Inequalities
+5. Real Funcitons of Real Variables
+6. Function Limits
+7. Real Number Succesions
+8. Continuity
+10. Derivability
+11. Derivate Applications
+
+= WEEKLY PROGRAM =
+
+# [[file:./weeklyprogram.pdf|WEEKLY PROGAM (PDF)]]
+
+| WEEK | DAYS        | SUBJECT | EVENTS  | DONE |
+|------|-------------|---------|---------|------|
+| 1    | 16/10-20/10 | 1       |         |      |
+| 2    | 23/10-27/10 | 2       | l1      |      |
+| 3    | 30/10-03/11 | 3       |         |      |
+| 4    | 06/11-10/11 | 4       |         |      |
+| 5    | 13/11-17/11 | 4       | l2/r1   |      |
+| 6    | 20/11-24/11 | 5       |         |      |
+| 7    | 27/11-01/12 | 6       | g3      |      |
+| 8    | 04/12-08/12 | 7       | r2      |      |
+| 9    | 11/12-15/12 | 8       |         |      |
+| 10   | 18/12-22/12 | 8       | r3      |      |
+| 11   | 08/01-12/01 | 8       |         |      |
+| 12   | 15/01-19/01 | 9       |         |      |
+| 13   | 22/01-26/01 | 9       | e       |      |
+| 14   | 29/01-02/02 | 10      |         |      |
+| 15   | 05/02-09/02 | repaso  |         |      |
+| 16   | 12/02-16/02 | repaso  |         |      |
+
+# Legend
+    # l1: combinatorics lab
+    # l2: polynoms
+    # g3: limits
+    # r1: combinatorics lab resolution
+    # r2: polynoms lab resolution
+    # r3: limits resolution
+    # e: exam model explanation
+
+= BIBLIOGRAPHY =
+
+# UNIR
+# OTHER
+    # Logica de enunciados
+        # [[file:./bibliography/pdf/logica_de_enunciados.pdf|(PDF)]]
+        # [[vfile:./bibliography/pdf/logica_de_enunciados|(BIBTEX)]]
