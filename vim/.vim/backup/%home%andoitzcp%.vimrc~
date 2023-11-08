@@ -132,6 +132,7 @@ Plug '42Paris/42Header'
 Plug 'andoitzcp/Myheader'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
+Plug 'brennier/quicktex'
 
 
 call plug#end()

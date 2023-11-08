@@ -1,6 +1,6 @@
 = INDEX =
 
-1. Enumerations and Conbinatorics
+1. Introduction to Mathematical Logic
     # [[vfile:./subject1/main.tex|(SOURCE)]]
     # [[file:./subject1/main.pdf|(PDF)]]
     # [[file:./subject1/unir.pdf|(UNIR)]]
@@ -8,7 +8,12 @@
     # [[vfile:./subject2/main.tex|(SOURCE)]]
     # [[file:./subject2/main.pdf|(PDF)]]
     # [[file:./subject2/unir.pdf|(UNIR)]]
+    # [[vfile:./subject2/excercises.tex|(EXERCISES)]]
 3. Numerical Sets
+    # [[vfile:./subject3/main.tex|(SOURCE)]]
+    # [[file:./subject3/main.pdf|(PDF)]]
+    # [[file:./subject3/unir.pdf|(UNIR)]]
+    # [[vfile:./subject3/excercises.tex|(EXERCISES)]]
 4. Polinomyals and Inequalities
 5. Real Funcitons of Real Variables
 6. Function Limits
@@ -56,3 +61,10 @@
     # Logica de enunciados
         # [[file:./bibliography/pdf/logica_de_enunciados.pdf|(PDF)]]
         # [[vfile:./bibliography/pdf/logica_de_enunciados|(BIBTEX)]]
+
+= OTHER STUFF =
+
+== LATEX ==
+
+[[vfile:~/vimwiki/compmath/templates/math_en.sty|Style file]]
+

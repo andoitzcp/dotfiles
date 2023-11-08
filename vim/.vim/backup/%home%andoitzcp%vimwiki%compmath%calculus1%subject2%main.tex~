@@ -1,0 +1,703 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathrsfs}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage[skip=10pt plus1pt]{parskip}
+\tcbuselibrary{skins}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightYellow}{Yellow!40!White}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Example,]{xmpsty}
+\declaretheorem[style=xmpsty,numberwithin=section]{example}
+\tcolorboxenvironment{example}{arc=0pt, enhanced, frame hidden, borderline west = {0.5pt}{0pt}{red},}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Lemme,]{lemsty}
+\declaretheorem[style=lemsty,numberwithin=theorem]{lemme}
+\tcolorboxenvironment{lemme}{colback=LightGray}
+
+\declaretheoremstyle[name=Corollary,]{colsty}
+\declaretheorem[style=colsty,numberwithin=theorem]{corollary}
+\tcolorboxenvironment{corollary}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{CALCULUS I: SUBJECT 2}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Enumeration and conbinatory} \vspace*{10\baselineskip}}
+		}
+\date{}
+\author{\textbf{Author} \\ 
+		Andoitz Campo\\
+		Portugalete\\
+		2023-10-14}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{OBJECTIVES}
+
+This are the main skills you should obtain by the end of this subject.
+
+\begin{itemize}
+    \item{Acquire the skill to enumerate and count the distinct types of discrete
+        structures, like sets.}
+    \item{Understand the fundamental relation between sets.}
+    \item{Understand the meaning of the binomial numbers and their most common
+        applications.}
+    \item{To apply the exclusion principle to solve combinatoric problems.}
+\end{itemize}
+
+\section{Sets}
+
+\subsection{Definitions and notation}
+
+A set is a collection of objects denominated ``elements''. Most of the time we
+will use capital letters $A, B, C, \cdots$ to denote sets, and lower case
+letters $a, b, c \cdots$ to represent elements. We will say that two sets are
+equal if, and only if they have the same elements. If an element $a$ belongs to
+a set $A$, we will write that $a \in A$. Otherwise, $a \notin A$.
+
+Sets can be formed by elements of any type, and the determination of a set can
+be done in 2 ways: by extension or by compression.
+
+Suppose a set containing a year's seasons.
+
+By extension, a set is defined like:
+
+\begin{equation}
+    E = \{spring, summer, fall, winter\}
+\end{equation}
+
+By compression, a set is defined like
+
+\begin{equation}
+    E = \{\text{Seasons of a year}\}
+\end{equation}
+
+We call the cardinal of a set $A$ and we denote like $|A|$ to the number of
+elements of $A$. For example, the set $A = \{1,3,6,15,12\}$ has the cardinal
+$|A| = 5$. We call a void set, and we denote it with $\emptyset$ to a set that
+doesn't contain any elements. Depending if the cardinal of the set is finite or
+infinite, a set is called a finite set or a infinite set.
+
+Given the sets $A$ and $B$, we say that $A$ is a subset $B$ if all of the
+elements of $A$ belong to $B$. We represent it as $A \subset B$. In the case
+that an element of $A$ doesn't belong to $B$, we write $A \not\subset B$.
+
+\begin{theorem}
+    If $A$ is a set with $|A| = n$, the number of subsets of $A$ with $k$
+    elements:
+    \begin{equation}
+        \begin{pmatrix} n \\ k \end{pmatrix} =
+        \frac{n!}{k!(n - k)!}
+    \end{equation}
+\end{theorem}
+
+The numbers with the form of $\tbinom{n}{k}$ are called combinatoric numbers and
+they are read ``n over k''. They represent the number  of subsets of a
+determined size $k$ starting from an original set of $n$ elements. 
+
+The set formed by the subsets of $A$ it's called the set of the parts of $A$, and we denote it with $\mathscr{P}(A)$. For example for the set $A = \{1,2,3\}$:
+
+\begin{equation}
+    \mathscr{P}(A) =
+    \{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}
+\end{equation}
+
+\begin{theorem}
+    For all the $A$ set:
+
+    \begin{equation}
+        \emptyset \subset A \wedge A \subset A
+    \end{equation}
+    \begin{equation}
+        A \subset B \wedge B \subset C \Rightarrow A \subset C \text{, where } B
+        \text{ and } C \text{ are sets}.
+    \end{equation}
+    \begin{equation}
+        \emptyset \subset \mathsrc{P}(A) \wedge A \subset \mathsrc{P}(A)
+    \end{equation}
+\end{theorem}
+
+We call universal set $U$ the set that contains all the sets we are working with. We define the complementary of $A$ respect to $U$, $A \subset U$, and we denote $\bar{A}$, being $\bar{A}$ the set of elements of $U$ that doesn't belong to $A$. In mathematical notation,  $\bar{A} = \{x \in U|x \not\in A\}.
+
+\subsection{Set operations}
+
+Given 2 sets, $A$ and $B$, the intersection of $A$ and $B$, denoted by $A \cap
+B$, is the set formed from the common elements from $A$ and $B$. We say that
+the sets are different when $A \cap B = \emptyset$. We define the union of $A$
+and $B$ as the set formed from the element that belong to at least one of them,
+and we denote like $A \cup B$. We also define the difference $A - B$ of 2 sets
+as the set formed by the elements of $A$ that don't belong to $B$.
+
+The cartesian product of $A \times B$ it's defined as  the set formed by the ordered pairs of elements $(a, b)$ such that $a \in A$ and $b \in B$, that is to say, $A \times B = \{(a,b)|a \in A \text{ and } b \in B\}$.
+
+\begin{example}
+    If $A = \{\alpha, \beta\}$ and $B = \{+, -, *\}$.
+    
+    Then:
+
+    \begin{equation}
+        A \times B = \{(\alpha, +), (\beta, +), (\alpha, -), (\beta, -),
+        (\alpha,*), (\beta, *)\}
+    \end{equation}
+    \begin{equation}
+        B \times A = \{(+, \alpha), (+, \beta), (-, \alpha), (-, \beta),
+            (*, \alpha), (*, \beta)\}
+    \end{equation}
+
+    Analogously the cartesian product of $k$ elements is the following:
+
+    \begin{equation}
+        A_1 \times A_2 \times \cdots \times A_k =
+        \{(a_1, a_2, \cdots, a_k)|a_i \in A_i, i = 1, \cdots, k\}
+    \end{equation}
+\end{example}
+
+The relations an operations between sets can be also represented by the
+\textit{Venn} diagram. In this diagrams, the universal set is represented by a
+rectangle, and inside it we represent the current data set with circles.
+
+The cardinal of the union of the sets $A$ and $B$ is:
+
+\begin{equation}\label{eq:card_of_union}
+    |A \cup B| = |A| + |B| - |A \cap B|
+\end{equation}
+
+\section{Variations, permutations and combinations}
+
+In this section we are reviewing 2 principles: the sum principle and the
+product principle.
+
+\begin{principle}
+    Sum principle:
+
+    If $k$ activities can be performed in $n_1, n_2, \cdots, n_k$ distinct ways
+    and they aredisjoint, thats to say, it's imposible to do them
+    simoultaneouly, then every of the $k$ activities can be done in $(n_1 + n_2
+    + \cdots + n_k)$ ways.
+\end{principle}
+
+In set notation, the sum principle is a fundamental principle to count the number of elements of the union of 2 disjoint set, and therefore, to calculate the cardinal of the union. For a disjoint union of set, $A \cap B$ = \emptyset$, the sum principle asserts:
+
+\begin{equation}
+    |A \cup B| = |A| + |B|
+\end{equation}
+
+Which is a particular case of the equation \ref{eq:card_of_union}.
+
+\begin{principle}
+    Product principle:
+
+    Suppose that an activity can be done in $k$ consecutive steps. In addition,
+    the step 1 can be done in $n_1$ ways, the step 2 can be done in $n_2$ ways,
+    $\cdots$, the step $k$ can be done in $n_k$ ways. Then, the activity can be
+    done in $(n_1 \cdot n_2 \cdots n_k)$ ways.
+\end{principle}
+
+In set notation, the product principle references to the cardinal of the Cartesian product of the sets $A_1, A_2, \cdots, A_k$ and brings the next equation:
+
+\begin{equation}
+    |A_1 \times A_2 \times \cdots \times A_k| = |A_1| \cdot |A_2| \cdots |A_k|
+\end{equation}
+
+Next step is to distinguish between variations, permutations or combinations,
+and their with or without repetition variant.
+
+\subsection{Ordinary variants}
+
+The ordinary variants, from now on, variants, allow to calculate how many
+different groupings of $r$ objects can be formed from a set of $n$ elements,
+always being $r \leq n$. Variations must follow the next rules:
+
+\begin{itemize}
+    \item{The $n$ element are distinct between them.}
+    \item{There is never repetition between the selection of elements, and
+        therefore always $r \leq n$.}
+    \item{The position of the elements matters.}
+\end{itemize}
+
+\begin{example}\label{xmp:ord_var}
+    Write all the possible words that can be formed from 2 characters of the
+    word ``FLECHA''. How many different words can we form from 3 characters?
+    And 4 characters?
+    \\
+    \\
+    Notice that all  the characters are different. Besides, each of them only
+    can be used once and the position has to be taken into account. This means
+    that, the words ``LE'' and ``EL'' are different. Therefore, we have a
+    problem of ordinary variants.
+    \\
+    \\
+    Let's start from the most simple case. To form words of 2 characters we can
+    enumerate all the possible cases in an ordered manner. In each column we
+    start from a different character, and we write all the posibilities of the
+    secon character.
+    \\
+    \begin{center}\begin{tabular}{cccccc}
+        FL & LF & EF & CF & HF & AF \\
+        FE & LE & EL & CL & HL & AL \\
+        FC & LC & EC & CE & HE & AE \\
+        FH & LH & EH & CH & HC & AC \\
+        FA & LA & EA & CA & HA & AH \\
+    \end{tabular}\end{center}
+    .
+    \\
+    \\
+    We obtain a total of 30 words. Although we can calculate it like this,
+    using this method for larger words becomes tedious.
+    \\
+    \\
+    If we think about the process we have followed to write the words, we will
+    find the answer. Notice that when we choose the first character from the 6
+    different posibilities only 5 characters remain to be chosen. Appliying the
+    principle of the product, we obtain a total of $6 \cdot 5 = 30$
+    posibilities. 
+    \\
+    \\
+    If we apply this to larger words, we have a variation of 6 elements of
+    order 3. In this case, $V(6,3) = 6 \cdot 5 \cdot 4 = 120$ posibilities. The
+    same to words of 4 characters, $V(6,4) = 6 \cdot 5 \cdot 4 \cdot 3 = 360$.
+\end{example}
+
+The next theorem is deduced from the previous example:
+
+\begin{theorem}
+    Number of variations of $n$ elements of $r$ order
+
+    \begin{equation}
+        V(n,r) = n \cdot (n - 1) \cdots (n - (r -1)) = \frac{n!}{(n-r)!}
+    \end{equation}
+\end{theorem}
+
+The problems of distinct object on different vessels can be solved as a
+problem of variations with the correct focus.
+
+\begin{example}
+    In how many ways we can distribute two balls, one red the other blue,
+    between 4 vessels that only have capacity for 1 ball?
+    \\
+    \\
+    We denote the set of vessels as $\{1,2,3,4\}$. Following this notation, we
+    can represent the distribution of the 2 balls  with a number of 2 digits,
+    where the first digit indicates were the red ball is and the second digit
+    indicates where the blue ball is.
+    \\
+    \\
+    For the case in which the red ball is in the vessel 1 and the blue ball is
+    in the vessel 2, $\{R,B,\emptyset,\emptyset\}$, we represent this
+    combination as $12$. For the case where, $\{\emptyset, B, R, \emptyset\}$,
+    the representation would be $32$.
+    \\
+    \\
+    This transformation enables us to solve the exercise as the example
+    \ref{xmp:ord_var}. Where the solution is, a variation of 4 elements of
+    order 2, $V(4,2) = 12$.
+\end{example}
+
+\subsection{Permutations}
+
+The permutations are a special case of the ordinary variations where $r = n$. Therefore permutations are variations of $n$ elements of $n$ order.
+
+\begin{example}
+    In how many ways we can distribute a bookshelf with 4 books about maths? If
+    we have to distribute the bookshelf with 3 books about literature and 2
+    about chemistry, how many ways do we have to do it? How many different
+    distributions would we have if the books of each subject must be one next
+    to each other?
+    \\
+    \\
+    The math books can occupy 4 different positions. For the first all the 4
+    books are int he bookshelf, for the second only 3 are available, and for
+    the third two books are still not in the bookshelf. In total, $V(4,4) = 4
+    \cdot 3 \cdot 2 = 24$ different combinations.
+    \\
+    \\
+    If we add both literature and chemistry books to the set, we have now a
+    permutation of $4 + 3 + 2 = 9$ elements, so $V(9,9) = 9!$ possibilities.
+    \\
+    \\
+    With the restriction of the books grouped by subject, we have 3 blocks, so
+    $V(3,3) = 3!$different forms to arrange this blocks. Inside of this blocks,
+    we have the corresponding variations to each subject. $4!$ for maths, $3!$
+    for literature and $2!$ for chemistry. Applying the product principle we
+    have the next possibilities:
+    \\
+    \\
+    \begin{equation}
+        4! \cdot 3! \cdot 2! \cdot 3!
+    \end{equation}
+\end{example}
+
+We denote with $P(n)$ a permutation of $n$ elements:
+
+\begin{equation}
+    P(n) = n!
+\end{equation}
+
+\subsection{Circular permutations}
+
+The circular permutations are permutations where their $n$ elements must be
+distributed in a circular manner. I.e. Around a circular table. The elements
+are distributed in a close line, so there is no first or last element. This
+implicates that we must consider the cases where we obtain two equal
+permutations when the elements of the permutation are rotated.
+
+\begin{example}
+    In how many ways can 6 people sit around a circular table?
+    \\
+    \\
+    If the people sit in a straight line, there would be $P(6) = 6!$
+    permutations, but we have to extract the combinations that are equal due to
+    the table being circular. Extracting the 6 rotations in which people
+    position doesn't vary between them, we obtain $\frac{P(6)}{6} = 5!$.
+\end{example}
+
+The circular permutations of $n$ elements can be calculated fixating one of
+them and distributing the rest around it. In this way we avoid the repetitions
+due to the rotations of the sector. Normally, circular permutations, are in
+fact a permutation with $n - 1$ elements, with $(n - 1)!$ possible
+distributions.
+
+\subsection{Variations with repetition}
+
+In the case the elements of a set can be repeated, we have the case of variations with repetitions, denoted as $VR(n,r), with the following characteristics:
+
+\begin{itemize}
+    \item{The $n$ elements are distinct between them.}
+    \item{There can be multiple repetitions, therefore, $r$ can be $r > n$.}
+    \item{The order of the elements matters.}
+\end{itemize}
+
+\begin{example}
+    In a college every student has an assigned code to his registration. This code is composed by 4 digits and 2 characters situated after the numbers. Suppose that the total number of available charactes is 25. How many students can the college have if:
+    \begin{enumerate}
+        \item{There is no limitation to nor in the character, nor in the numbers.}
+        \item{The two characters can't be the same.}
+    \end{enumerate}
+
+a)
+
+In one hand, the digits of a number can be repeated, so this problem is a repeating
+variation problem. For each number digit we can choose between the next set
+$\{0,1,2,3,4,5,6,7,8,9\}$, and therefore we obtain $VR(10,4) = 10 \cdot 10
+\cdot 10 \cdot 10 = 10^4$ possibilities.
+
+In the other hand, with the characters happens the same, $VR(25,2) = 25^2$
+different combinations.
+
+Therefore, the total amount of possibilities can be calculated using the
+product principle, being $10^4 \cdot 25^2 = 6250000$ the maximum of students
+the college can accomodate.
+
+b)
+
+If the 2 characters can't be the same, we have a variation problem of 25
+elements and order 2, $V(25,2) = 25 \cdot 24$.
+
+Therefore, the total amount of students would be $10^4 \cdot 25 \cdot 24 =
+6000000$.
+\end{example}
+
+\begin{theorem}
+    The variations of $n$ elements of $k$ order with repetition are given by the next equation.
+
+    \begin{equation}
+        VR(n,r) = n^r
+    \end{equation}
+\end{theorem}
+
+\subsection{Permutations with repetition}
+
+This is better explained with an example:
+
+\begin{example}
+    How much  different words can we form from the characters in the word ``BANANA''?
+    \\
+    \\
+    If we try to solve this problem as an ordinary permutation, we obtain $P(6)
+    = 6! = 720$ different words.
+    \\
+    \\
+    But in this case, we have repeated charactes, ``A'' repeats itself 3 times
+    and ``N'' 2 times. So we must divide the previous result with the number of
+    permutations that result into repeated words. In the case of ``A'' $3!$ and
+    in the case of ``N'' $2!$, given the next result:
+
+    \begin{equation}
+        \frac{P(6)}{P(3) \cdot P(2)} = \frac{6!}{3! \cdot 2!} = 60
+    \end{equation}
+\end{example}
+
+So a permutation with repetition over a set of $n$ has the following
+characteristics:
+\begin{itemize}
+    \item{The $n$ elements are not between them. Between $n$ elements there are
+        $s$ distinct types.}
+    \item{We suppose that $r = n$.}
+    \item{The order of the elements matters.}
+\end{itemize}
+
+In addition, we denote with $PR(n;n_1, \cdot, n_s)$ the  number of different
+permutations of $n$ elements that include $n_1$ equal objects of type 1, $n_2$
+equal objects of type 2, $\cdots$, $n_s$ equal objects of type $s$.
+
+\begin{theorem}
+    Permutations with repetition.
+
+    \begin{equation}
+        PR(n,n1, \cdots,n2) = \frac{n!}{n_1! \cdot n_2! \cdots n_s!}
+    \end{equation}
+\end{theorem}
+
+\subsection{Ordinary combinations}
+
+When the order of the elements isn't important combinations enter the play. An ordinary combination is like the ordinary variation except that the order or the elements is not taken into account.
+
+Ordinary combinations have the following principles:
+\begin{itemize}
+    \item{The $n$ elements are different between them.}
+    \item{The elements can't repeat.}
+    \item{The order of the elements doesn't matter.}
+\end{itemize}
+
+The fundamental difference between variations and combinatios is that now the
+elements of the formed subsets don't take any particular place, simply they are
+part of the enumeration of the set. Therefore the ordinary combinations are
+combinations of $n$ elements oto form subsets of $r$ size. Then, if $C(n,r)$
+denotes the combination of $n$ elements of $r$ order, it's verified that:
+
+\begin{equation}
+    C(n,r) = \binom{n}{r}
+\end{equation}
+
+\begin{example}
+    Write all the subsets of 2 characters that can be formed with the
+    characters $\{A,B,C,D\}$.
+    \\
+    \\
+    The particularity of the ordinary combination is that the subsets $\{A,B\}$
+    and $\{B,A\}$ are equal. Therefore we can't solve it like a variation.
+    \\
+    \\
+    If all the sets were counted without distingushing between equals we would
+    obtain $V(4,2) = 4 \cdot 3 = 12$ posibilites. If we extract the repeating
+    cases we obtain $12 /2 = 6$ subsets.
+    \\
+    \\
+    If from the begining we consider this problem as a ordinary combination
+    problen of 4 elements of order 2, then we would obtain the same result:
+    $C(4,2) = \tbinom{4}{2} = 6$.
+\end{example}
+
+\begin{theorem}
+    Ordinary combination.
+
+    The ordinary combinations can be analized from the perspective of the
+    ordinary variations whom we extract from them the repeated permutations.
+
+    \begin{equation}
+        C(n,r) = \frac{V(n,r)}{P(r)}
+    \end{equation}
+\end{theorem}
+
+\subsection{Combinations with repetition}
+
+Their characteristics are the next:
+
+\begin{itemize}
+    \item{The $n$ elements are distinct between them.}
+    \item{The elements can repeat.}
+    \item{The order of the elements doesn't matter.}
+\end{itemize}
+
+Let's see how it is in the next example:
+
+\begin{example}
+    5 friends have to choose between 3 different colors $\{red, blue, green\}$.
+    In how many ways the can do it?
+    \\
+    \\
+    Notice that the colors can repeat but the order of the elements isn't
+    important.
+    \\
+    \\
+    We have the same amount of posibilites as subsets of 5 elements and a total
+    sample of $5 + 2 = 7$ elements. Suppose that one chooses red, another blue
+    and the rest green, then we got $\{R|B|GGG\}$ (the corresponding to the 5
+    colors and to the 2 ``|''). Therefore they exist $\tbinom{7}{5}$ different
+    posibilities.
+\end{example}
+
+We denote the combinations with repetitions as $CR(n,r), which have a sample of
+$n + r -1$ elements.
+
+\begin{theorem}
+    Combinations with repetitions.
+
+    \begin{equation}
+        CR(n,r) = C(n + r -1, r) = \binom{n + r -1}{r}
+    \end{equation}
+\end{theorem}
+
+\subsection{Summary}
+
+In this table we include the concepts seen so far in this section:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccl}
+        \toprule
+         & Order matters? & Can repeat? & Equation \\
+        \midrule
+        Variations   & YES & NO  & $V(n,r)=\frac{n!}{(n-r)!}$ \\ \\
+                     &     & YES & $VR(n,r)=n^r$ \\ \\
+        Permutations & YES & NO  & $P(n)= n!$ \\ \\
+                     &     & YES & $PR(n;n_1,\cdots,n_s) = \frac{n!}{n_1!n_2!\cdots n_s!}$ \\ \\
+        Combinations & NO  & NO  & $C(n,r)= \binom{n}{r}$ \\ \\
+                     &     & YES & $CR(n,r)= \binom{n + r -1}{r} \\ \\
+       \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Bynomial Coeficients}
+
+Being $n$ and $k$ natural numbers, $k \leq n$, the next properties are verified
+for combinatoric numbers:
+
+\begin{itemize}
+    \item{$\tbinom{n}{0} = \tbinom{n}{n} = 1$}
+    \item{$\tbinom{n}{1} = n$}
+    \item{$\tbinom{n}{k} = \tbinom{n}{n-k} = 1$}
+    \item{If $k > n$, then $\tbinom{n}{k}= 0$}
+    \item{If $X$ is an infinite set, then $|\tbinom{X}{k}| = \tbinom{|X|}{k}$}
+\end{itemize}
+
+It's also important to know some of the fundamental identities of the
+combinatoric numbers, which will be a first look at simple demonstrations.
+
+\begin{theorem}
+    Pascal identity.
+
+    If $n$ and $k$ are natural numbers with $k \leq n$, then:
+
+    \begin{equation}
+        \binom{n}{k - 1} + \binom{n}{k} = \binom{n + 1}{k}
+    \end{equation}
+\end{theorem}
+
+Demostration of the Pascal identity:
+
+On one side, we got:
+
+\begin{multline}
+    \binom{n}{k-1} = \frac{n!}{(k-1)!(n-k+1)!} =
+    \frac{n + 1}{k} \frac{k}{n+1} \frac{n!}{(k-1)!(n-k+1)!} = \\
+    \frac{k}{n+1} \frac{(n+1)!}{k!(n-k+1)!} =
+    \frac{k}{n+1} \binom{n+1}{k}
+\end{multline}
+
+At the same time:
+
+\begin{equation}
+    \binom{n}{k} = \frac{n!}{k!(n-k)!} =
+    \frac{n-k+1}{n+1} \frac{(n+1)!}{k!(n-k+1)!} = 
+    \frac{n-k+1}{n+1} \binom{n+1}{k}
+\end{equation}
+
+Lastly adding the two developments obtained:
+
+\begin{equation}
+    \binom{n}{k-1} + \binom{n}{k} =
+    \left[\frac{k}{n+1} + \frac{n-k+1}{n+1}\right] \binom{n+1}{k} =
+    \binom{n+1}{k}
+\end{equation}
+
+From the pascal identity we stablish the next corollary:
+
+\begin{corollary}
+    If $n$ and $k$ are natural numbers with $k \leq n$, then:
+
+    \begin{equation}
+        \binom{n+1}{k+1} = \sum_{j=k}^n \binom{j}{k}
+    \end{equation}
+\end{corollary}
+
+Demostration:
+
+Applying the Pascal identity, we obtain:
+
+\begin{equation}
+    \binom{j+1}{k+1} = \binom{j}{k} + \binom{j}{k+1} \rightarrow
+    \binom{j}{k} = \binom{j+1}{k+1} - \binom{j}{k+1}
+\end{equation}
+
+% Maybe I need to add one more part: Examples.  Set style and color later.
+
+\section{Citation}
+
+This is a citation\cite{Eg}.
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% Reference and Cited Works
+% ------------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran} \bibliography{References.bib}
+
+% ------------------------------------------------------------------------------
+
+\end{document}

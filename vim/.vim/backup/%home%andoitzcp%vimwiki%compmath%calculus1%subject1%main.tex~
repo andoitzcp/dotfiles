@@ -23,8 +23,8 @@
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
-\declaretheoremstyle[name=Theorem,]{xmpsty}
-\declaretheorem[style=thmsty,numberwithin=section]{example}
+\declaretheoremstyle[name=Example,]{xmpsty}
+\declaretheorem[style=xmpsty,numberwithin=section]{example}
 \tcolorboxenvironment{example}{arc=0pt, enhanced, frame hidden, borderline west = {0.5pt}{0pt}{red},}
 
 \declaretheoremstyle[name=Theorem,]{thmsty}
@@ -308,6 +308,20 @@ It's equivalent to $\ll$ if ..., then and reciprocally $\gg$ or $\ll$ ... if, an
         $\Leftrightarrow \exists \textbf{k} \in \mathbb{Z}$ that $\textbf{z = 2k}$.
     \end{proposition}
 \end{example}
+
+\subsection{Morgan Laws}
+
+Morgan laws describe what happens when an implication proposition is negated.
+
+\begin{theorem}
+    Morgan Laws:
+    \begin{align*}
+        \sim (p \wedge q) = \sim p \vee \sim q \\
+        \sim (p \vee q) = \sim p \wedge \sim q
+    \end{align*}
+\end{theorem}
+
+Note that the $\wedge$ and $\vee$  simbol changes when a proposition is negated.
 
 \begin{table}[h]
     \centering

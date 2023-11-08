@@ -1,0 +1,83 @@
+# Thursday 02 November 2023
+
+## Most Important Tasks
+
+- [ ] Andar 1h
+- [ ] Planchar la ropa
+- [ ] Mandar certificado estudiante y numero de cuenta
+
+## Work
+
+- [O] Revisar modelos en prod.
+    - [ ] AAFF006X
+        - [ ] Ejercicio Entrega CN/MC
+        - [ ] Tipo de Inversion
+        - [ ] Motivacion
+        - [ ] Motivo no Retributable
+        - [ ] Unidad Regulatoria
+        - [ ] Retribuible
+        - [ ] Traducir
+    - [ ] EXP011X
+        - [ ] Traducir
+    - [ ] EXP018X
+        - [ ] Traducir
+    - [o] AAFF009X
+        - [ ] Traducir
+    - [ ] EXP006X
+        - [ ] Pedir a Iñigo permiso de edicion.
+        - [ ] Asignar grupos a dimensiones
+        - [ ] Traducir
+    - [o] EXP006X_PRO
+        - [ ] Traducir
+- [ ] Revisar las CDS que estan para modelado y vinculacion
+    - [ ] INV0001R6
+        - [ ] I.009
+    - [ ] INV008X
+        - [ ] I.009
+    - [ ] ZKQEXP003X
+        - [ ] I.009
+    - [ ] ZKQEXP009X
+        - [ ] I.009
+- [ ] EXP003XRep crear funcional y validar. Prio 2
+- [ ] Revisar informes en produccion.
+    - [ ] E.006 pedir a gonzalo revisar si trae dato
+    - [ ] I.004 pedir a gonzalo revisar si trae dato    
+    - [ ] I.007 pedir a gonzalo revisar si trae dato    
+    - [ ] I.009 pedir a gonzalo revisar si trae dato    
+    - [ ] IDE.000 pedir a gonzalo que mire el kpi intercalario 
+    - [ ] IDE.004 pedir a gonzalo que mire el kpi telecomunicaciones
+    - [ ] IDE.003 pedir a gonzalo que mire el kpi telecomunicaciones
+    - [ ] C.000 arreglar y pedir a gonzalo revisar
+- [ ] I.003 probar arreglar jeraquias filtro prompt
+- [ ] Preparar prueba de estres SI1 replica de la historia E.002 con CD EXP000X para tabla y kpis y CDS EXP001X para graficos.
+- [ ] EXP004X validar seguridad PRIO 2
+- [ ] AAFF0001DS validar PRIO 2 la que pone un 2 en la descripcion
+- [.] EXP006XPRO2 añadir campo subnegocio 2 pedir trasnpote SI1
+    - [ ] Validar salidas
+    - [ ] Validar importes
+    - [ ] Validar seguridad
+- [ ] INV004XMES validar en SI1 y transportar a SP1
+- [.] Dividir exp006PRO5 en importes y cantidades
+    - [ ] Validar salidas
+    - [ ] Validar importes
+    - [ ] Validar seguridad
+
+## Computational Maths
+
+- [ ] hacer apuntes fundamentos de la programacion tema 1 latex
+- [ ] decargar todo el temario de las asignaturas y guardar los pdf en sun directorio correspondiente
+
+## Other
+
+- [ ] 
+- [ ] 
+
+## Expenses
+
+| ITEM | QTY | COST |
+|------|-----|------|
+|      |     |      |
+
+
+## Workout
+

@@ -1,0 +1,66 @@
+= INDEX =
+
+1. Descriptive Statistics
+    # [[vfile:./subject1/main.tex|(SOURCE)]]
+    # [[file:./subject1/main.pdf|(PDF)]]
+    # [[file:./subject1/unir.pdf|(UNIR)]]
+    # [[vfile:./subject1/excercises.tex|(EXERCISES)]]
+2. Descriptive Statistics: Data Visualization
+    # [[vfile:./subject2/main.tex|(SOURCE)]]
+    # [[file:./subject2/main.pdf|(PDF)]]
+    # [[file:./subject2/unir.pdf|(UNIR)]]
+    # [[vfile:./subject2/exercises.tex|(SOURCE)]]
+    # [[vfile://subject2/excercises.tex|(EXERCISES)]]
+3. Probability: Introduction and Concepts
+4. Random Variables: Density functions and distribution
+5. Main Probability Distributions
+6. Statistic Inference
+7. Linear Regresion Techniques
+8. Non-linear Regresion Techniques
+10. Data Analisys: Hypothesis Tests
+11. Variance Analisys: ANOVA
+
+= WEEKLY PROGRAM =
+
+# [[file:./weeklyprogram.pdf|WEEKLY PROGAM (PDF)]]
+
+| WEEK | DAYS        | SUBJECT | EVENTS  | DONE |
+|------|-------------|---------|---------|------|
+| 1    | 16/10-20/10 | 1       |         |      |
+| 2    | 23/10-27/10 | 2       | l1      |      |
+| 3    | 30/10-03/11 | 3       |         |      |
+| 4    | 06/11-10/11 | 4       | r1      |      |
+| 5    | 13/11-17/11 | 4       |         |      |
+| 6    | 20/11-24/11 | 5       |         |      |
+| 7    | 27/11-01/12 | 5       | l2      |      |
+| 8    | 04/12-08/12 | 6       |         |      |
+| 9    | 11/12-15/12 | 6       |         |      |
+| 10   | 18/12-22/12 | 7       | r2      |      |
+| 11   | 08/01-12/01 | 7       | g3      |      |
+| 12   | 15/01-19/01 | 8       |         |      |
+| 13   | 22/01-26/01 | 9       | e       |      |
+| 14   | 29/01-02/02 | 10      | r3      |      |
+| 15   | 05/02-09/02 | repaso  |         |      |
+| 16   | 12/02-16/02 | repaso  |         |      |
+
+# Legend
+    # l1: Data usage introduction with R
+    # l2: Exercise resolutions
+    # g3: Linear regresion techniques
+    # r1: Data usage introduction with R resolution
+    # r2: Exercise resolutions resolution
+    # r3: Linear regresion techniques resolution
+    # e: exam model explanation
+
+= ACTIVITIES =
+
+# Laboratory 1
+    # [[vfile:./activities/lab1/lab1.tex|(SOURCE)]]
+
+= BIBLIOGRAPHY =
+
+# UNIR
+# OTHER
+    # Dummy book title
+        # [[file:./bibliography/pdf/dummy_book_title.pdf|(PDF)]]
+        # [[vfile:./bibliography/pdf/dummy_book_title|(BIBTEX)]]

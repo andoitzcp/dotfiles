@@ -1,0 +1,15 @@
+= GIT COMMAND CHEATSHEET =
+
+Change the remote repository origin:
+
+    `$ git remote set-url` _remote-name_ _remote-url_
+    
+    where:
+    
+    _remote-name_: origin
+    
+    _remote-url_: git@_gitserver_:_pathto_/_git-repository_.git
+    
+    I.E.
+    
+    `$ git remote set-url origin git@neutron:/srv/git/vimwiki.git`

@@ -1,0 +1,151 @@
+= Contents =
+    - [[#CREATE AND OPERATE A SELF HOSTED GIT SERVER]]
+        - [[#SUMMARY]]
+        - [[#PROCESS]]
+            - [[#Create the "Git" user]]
+            - [[#Upload public `SSH` keys to the `git` user.]]
+            - [[#Create a bare repository]]
+            - [[#Add remote repository in other computer]]
+        - [[#ADDITIONAL STEPS]]
+            - [[#Restrict the use of the shell with the git user]]
+            - [[#Restrict the SSH port forwarding]]
+
+= CREATE AND OPERATE A SELF HOSTED GIT SERVER =
+
+== SUMMARY ==
+
+Here is the process of self hosting git in a server:
+
+# Create a "git" user and group
+# Upload public SSH keys to the "git" user which will allow you (or others) to
+  log in as the "git" user.
+# Create a bare repository on the server.
+# Add the remote repositore (the one just created on the server) to a local Git
+  project.
+# Push changes to the remote repository.
+
+== PROCESS ==
+
+=== Create the "Git" user ===
+
+Create the git user:
+
+`# adduser git`
+
+Log into the newly created git user:
+
+`$ su git`
+
+Create a `.ssh` directory in the git user /home directory:
+
+- cd into /home:
+
+`$ cd`
+
+- create the `.ssh` directory:
+
+`$ mkdir .ssh`
+
+- make the `.ssh` directory only accesible by the git user:
+
+`$ chmod 700 .ssh`
+
+Create an authorized keys file:
+
+`$ touch .ssh/authorized_keys`
+
+Adjust the privileges of this files just to be accesible only for the git user.
+
+`$ chmod 600 .ssh/authorized_keys` 
+
+=== Upload public `SSH` keys to the `git` user. ===
+
+Let's asume you have the id_rsa.pub files available as temporary files in the
+server.
+
+I.E.
+- id_rsa.proton.pub
+- id_rsa.neutrine.pub
+- id_rsa.work.pub
+
+Append this files to the `.ssh/authorized_keys` file:
+
+`$ cat /tmp/id_rsa.proton.pub >> ~/.ssh/authorized_keys`
+`$ cat /tmp/id_rsa.neutrine.pub >> ~/.ssh/authorized_keys`
+`$ cat /tmp/id_rsa.work.pub >> ~/.ssh/authorized_keys`
+
+=== Create a bare repository ===
+
+To create a bare repository using git init first navigate to the `/srv/git`
+directory and there create the new project directory. Then initate the
+repository as a bare repository.
+
+`$ cd /srv/git`
+`$ mkdir project.git`
+`$ cd project.git`
+`$ git init --bare`
+
+=== Add remote repository in other computer ===
+
+To add a remote repository to a computer, it's required to ssh into the git
+server and create there a bare repository first. Then to add contet to this
+repository the very first time, the next steps must be followe:
+
+On the target computer:
+
+`$ cd myprocect`
+`$ git init`
+`$ git add .`
+`$ git commit -m "Initial commit"`
+`$ git remote add origin git@gitsever:/srv/git/project.git`
+`$ git push origin master`
+
+
+At this point, other computers can clone it down and push changes back:
+
+`$ git clone git@gitserver:/srv/git/project.git`
+`$ cd project` 
+`$ vim README` 
+`$ git commit -am "Fix for README file"` 
+`$ git push origin master`
+
+== ADDITIONAL STEPS ==
+
+=== Restrict the use of the shell with the git user ===
+
+To avoid users login in the server and geting a shell as the git user, the
+shell of the `git` user can be changed.
+
+First ensure git-shell is in the shell list:
+
+`$ cat /etc/shells # see if git-shell is already there. If not...`
+`$ which git-shell # make sure git-shell is installed in your system`
+`$ sudo -e /etc/shells # and add the path to git-shell from last command`
+
+To edit the shell for a user the `chsh` command comes handy.
+
+`$ sudo chsh git -s $(which git-shell)`
+
+=== Restrict the SSH port forwarding ===
+
+To avoid users to be able to ssh into the server git user and from there ssh
+into another machine, prepend the following line to each key  in the
+`~/.ssh/authorized_keys` file:
+
+`no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty`
+
+The results should look like this:
+
+{{{
+$ cat ~/.ssh/authorized_keys
+no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6h
+PB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541N
+YsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcC
+IicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myivO7TCUSBd
+LQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPqdAv8JggJ
+ICUvax2T9va5 gsg-keypair
+
+no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDEwENNMomTboYI+LJieaAY16qiXiH3wuvENhBG...
+}}}

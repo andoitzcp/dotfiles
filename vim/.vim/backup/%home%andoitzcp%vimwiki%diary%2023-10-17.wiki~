@@ -1,0 +1,135 @@
+# Tuesday 17 October 2023
+
+## Most Important Tasks
+
+- [ ] Apuntarme como se crea una nueva repo de git en el server neutron.
+- [ ] Andar 1h
+- [ ] Planchar la ropa
+
+## Work
+
+- [.] Revisar modelos en prod.
+    - [ ] AAFF006X
+        - [ ] Ejercicio Entrega CN/MC
+        - [ ] Tipo de Inversion
+        - [ ] Motivacion
+        - [ ] Motivo no Retributable
+        - [ ] Unidad Regulatoria
+        - [ ] Retribuible
+        - [ ] Traducir
+    - [ ] EXP011X
+        - [ ] Traducir
+    - [ ] EXP018X
+        - [ ] Traducir
+    - [o] AAFF009X
+        - [ ] Traducir
+    - [ ] EXP006X
+        - [ ] Pedir a Iñigo permiso de edicion.
+        - [ ] Asignar grupos a dimensiones
+        - [ ] Traducir
+    - [ ] FI004
+        - [ ] Traducir
+    - [ ] FI002
+        - [ ] Traducir
+    - [ ] AAFF008X
+        - [ ] Traducir
+    - [ ] AAFF0001DSUB
+        - [ ] Traducir
+    - [ ] AAFF0004X01
+        - [ ] Traducir
+    - [ ] AAFF0004X02
+        - [ ] Traducir
+    - [o] INV008X
+        - [ ] Traducir
+    - [o] INV009X
+        - [ ] Traducir
+    - [ ] INV028X
+        - [ ] Traducir
+    - [o] EXP006X_PRO
+        - [ ] Traducir
+    - [o] ZKQINV008X_CP
+        - [ ] Traducir
+    - [o] ZKQINV0001R6_CP
+        - [ ] Traducir
+    - [o] ZKQEXP023X
+        - [ ] Traducir
+    - [o] ZKQFI0005
+        - [ ] Traducir
+    - [o] ZKQINV000X_CECO
+        - [ ] Traducir
+    - [o] ZKQINV008X
+        - [ ] Traducir
+    - [o] ZKQINV009X
+        - [ ] Traducir
+    - [o] ZKQINV010X
+        - [ ] Traducir
+        - [ ] Traducir
+    - [o] ZKQEXP005X
+        - [ ] Traducir
+    - [o] ZKQINV0001R6
+        - [ ] Traducir
+    - [ ] ZKQINV0001R8
+        - [ ] Traducir
+- [ ] Crear funcionales nuevas CDS MES a nivel de:
+    - [ ] INVERSION
+        - [ ] CECO/CEBE
+        - [ ] SOCIEDAD
+    - [ ] GASTO
+        - [ ] CECO/CEBE
+        - [ ] SOCIEDAD
+- [.] Revisar las CDS que estan para modelado y vinculacion
+    - [ ] INV000XCECO
+    - [O] INV0001R6
+        - [X] I.002
+        - [X] I.006
+        - [X] I.008
+        - [ ] I.009
+    - [X] INV0001R8
+        - [X] I.002
+    - [ ] INV008X
+        - [ ] I.003
+        - [ ] I.009
+    - [ ] INV009X
+        - [ ] I.003
+    - [ ] INV010X
+        - [ ] I.003
+    - [ ] ZKQEXP003X
+        - [ ] E.015
+        - [ ] I.009
+    - [ ] ZKQINV0004X
+    - [ ] ZKQEXP004X
+        - [ ] E.015
+    - [ ] ZKQEXP005X
+        - [ ] E.015
+    - [ ] ZKQEXP006X_PRO
+    - [.] ZKQEXP009X
+        - [ ] E.013
+        - [ ] E.018
+        - [X] I.006
+        - [ ] I.009
+    - [ ] ZKQEXP010X
+        - [ ] E.012
+        - [ ] E.013
+        - [ ] E.018
+    - [ ] ZKQFI0005
+
+## Computational Maths
+
+- [ ] Hacer apuntes estaditica tema 1 latex
+- [ ] hacer apuntes fundamentos de la programacion tema 1 latex
+- [ ] decargar todo el temario de las asignaturas y guardar los pdf en sun directorio correspondiente
+
+## Other
+
+- [ ] 
+- [ ] 
+
+## Expenses
+
+| ITEM | QTY | COST |
+|------|-----|------|
+|      |     |      |
+
+
+## Workout
+

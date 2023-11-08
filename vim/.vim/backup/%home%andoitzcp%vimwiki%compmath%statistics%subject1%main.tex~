@@ -1,0 +1,473 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage[skip=10pt plus1pt]{parskip}
+\tcbuselibrary{skins}
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightYellow}{Yellow!40!White}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Example,]{xmpsty}
+\declaretheorem[style=xmpsty,numberwithin=section]{example}
+\tcolorboxenvironment{example}{arc=0pt, enhanced, frame hidden, borderline west = {0.5pt}{0pt}{red},}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Lemme,]{lemsty}
+\declaretheorem[style=lemsty,numberwithin=theorem]{lemme}
+\tcolorboxenvironment{lemme}{colback=LightGray}
+
+\declaretheoremstyle[name=Corollary,]{colsty}
+\declaretheorem[style=colsty,numberwithin=theorem]{corollary}
+\tcolorboxenvironment{corollary}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{CALCULUS I: SUBJECT 1}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Introduction to the mathematical logic} \vspace*{10\baselineskip}}
+		}
+\date{}
+\author{\textbf{Author} \\ 
+		Andoitz Campo\\
+		Portugalete\\
+		2023-10-14}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+
+\section{OBJECTIVES}
+
+This are the main skills you should obtain by the end of this subject.
+
+\begin{itemize}
+    \item{Understand the concept of statistics and introduce it's multiple applications.}
+    \item{Understand how to differentiate between two data types, numerical and
+        categorical data.}
+    \item{Understand the difference between population and sample.}
+    \item{Inside the descriptive statistic scope, revise the most important
+        central tendency statistics and the measures of dispersion and shape.}
+\end{itemize}
+
+\section{Concept and use statistics}
+
+The German scientist Alen Archenwall defined it from the Latin word
+\textit{status} which means ``The gathering, processing and utilization of the
+data by the State''. The dictionary of the Real Academy of the Language defines
+statistics as the following:
+
+\begin{itemize}
+    \item{A set of statistical data.}
+    \item{Study of the quantitative data of the population, natural and
+        industry resources, of traffic or any manifestation of the human society.}
+    \item{Branch of mathematics that utilize large data sets to obtain
+            inferences based on probability calculations}
+\end{itemize}
+
+The first definition only considers the data collections aspect of some subject
+without any meaningful mathematical implication. This kind of definition is
+often used int business statistics or in sport player statistics such as
+height, won games, score etc.
+
+The second definition, apart from the first definition considerations, takes into account various mathematical techniques that manage to summary, organize, display and certainly study a series of data about some concrete facts. This is what's actually called Descriptive Statistics.
+
+Some mainstream descriptive statistics are the IPC, a country's birth rate, the
+unemployment rate... The National Institutes of Statistics maintain the harmony
+and homogeneity of this ``official statistics''. At the same time, this kind of
+statistics are often used to resume the performance of a Company during a year,
+study the operations of and hospital or the performance of a school.
+
+Lastly, the third definition applies to what's commonly named inferential
+statistics or mathematical statistics, where the inference terminology means
+``to deduce consequences about a population from the results of a sample''. The
+main difference respect to the ``Descriptive Statistics'' is that here the
+sample data is considered as the whole population.
+
+This means that if we merely use the Descriptive Statistics in the study of a
+coin flip or in the grades of an exam, we can only see if we have got more
+heads than tails of something like that, without knowing if this differences
+are due to the randomness of a data sampling process, a truncated coin or
+differences into student level.
+
+Logically, as the total population isn't available, the results of an Inference
+always will contain errors, which must be quantified using the probability
+calculus techniques. The reason why we use sample data could be economical, due
+to the elevated cost of acquiring great amounts of data, or pragmatical, due to
+the impossibility of collecting data from each population individual. In
+example: When data is collected for quality testing and the test are
+destructive test, we can't analyze all the production of the factory.
+
+\section{Attributes and Variables. Types of Variables}
+
+A good starting point for a data analysis is to ask yourself what types of
+variables are we using. Are they categorical variables or numerical variables?
+
+Types of Variables:
+
+\begin{itemize}
+    \item{Numeric data}
+        \begin{itemize}
+            \item{Discrete}
+            \item{Continuous}
+        \end{itemize}
+    \item{Categorical data}
+        \begin{itemize}
+            \item{Ordinal}
+            \item{Nominal}
+            \item{Binary}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Numerical Data}
+
+Also known as  ``quantitative data''. Is data based in numbers which can be
+used to calculate the temperature, the dimension or the number of people in a
+room. It can be made a distinction between discrete and continuous.
+
+\subsection{Categorical Data}
+
+Also known as ``qualitative data''. If the data can be ordered it is called
+ordinal data. If the data has disordered categories, it's called nominal data.
+Finally if there is only 2 options it is called binary data.
+
+\begin{example}
+    Variable types example:
+
+    \captionof{table}{blablabla}
+    \noindent\begin{tabular}{lcccc}
+        \toprule
+        N. Reclamation & Total time & Reclamation type & Incidence Count & Resolved \\
+        \midrule
+        NR20190123  & 29.73 & AN    & 3 & YES \\
+        NR20190124  & 6.83  & OX    & 2 & NO  \\
+        NR20190125  & 6.86  & NU    & 0 & YES \\
+        NR20190126  & 6.93  & AN    & 1 & YES \\
+        NR20190127  & 19.81 & OX    & 4 & NO  \\
+        \bottomrule
+    \end{tabular}
+    \\
+    \\
+    As we can see in this table we have the following variable types:
+    \begin{itemize}
+        \item{Total time: Continuous variable}
+        \item{Reclamation type: Nominal variable}
+        \item{Incidence Count: Discrete variable}
+        \item{Resolved: Binary variable}
+    \end{itemize}
+\end{example}
+
+\subsection{Numerical and categorical data differences}
+
+So why it's done this distinction?
+
+\begin{enumerate}
+    \item{Information density. Numerical data contains more information than
+        categorical data.}
+    \item{Visualization tools. The type of data determines the charts used in
+        visualizations.}
+\end{enumerate}
+
+\begin{example}
+   Suppose you are a surgery department manager. You know that your patients
+   with a broken arm must leave the hospital within the first 6 days of
+   hospitalization. You want to proof that this is possible and you gather data
+   from the patients.
+
+   You obtain the next table.
+    
+   \begin{center}
+        \captionof{table}{Patient registry}
+        \noindent\begin{tabular}{lll}
+        \toprule
+        Patient ID & Leaves within 6 days & Days in hospital \\
+        \midrule
+        1 & YES & 5 \\
+        2 & NO  & 10 \\
+        3 & YES & 5 \\
+        4 & YES & 6 \\
+        5 & NO  & 7 \\
+        \bottomrule
+        \end{tabular}
+   \end{center}
+   For this patients we can gather categorical or numerical data.
+
+   \begin{itemize}
+       \item{Column 2: Binary $\rightarrow$ Categorical data.}
+       \item{Column 3: Discrete $\rightarrow$ Numerical data.}
+   \end{itemize}
+   If we register binary data we can't later produce the Discrete data shown in
+   the 3 column of the table, but we always can produce binary data from
+   discrete data. This is why it's said that numerical data is denser than
+   categorical data.
+\end{example}
+
+This implies that categorical data imply more observations than numerical data.
+As a rule of thumb, for numerical variables we need around 30 observations, in
+contrast to  categorical data which requires at least 300 observations.
+
+The second reason to differentiate between categorical an numerical data, is
+the tools that are going to be used in the visualization of one or the other.
+
+For numerical data:
+\begin{itemize}
+    \item{Histogram}
+    \item{Box plot}
+\end{itemize}
+
+For categorical data:
+\begin{itemize}
+    \item{Pie plot}
+    \item{Bar plot}
+    \item{Pareto plot}
+\end{itemize}
+
+\section{Population vs sample data}
+
+We call the population, the series of elements we are interested in studying.
+Each of these elements it's usually called individuals or ``statistical
+units''.
+
+We must indicate which characteristics are meaningful for each individual,
+establishing how are they measured, so the data collected from multiple people
+can be comparable.
+
+This characteristics can be classified between qualitative (words) and
+quantitative variables (numbers).
+
+Next the data gathering must be planned. Are we going to study every member of
+the population, or are we taking a sample of it instead. In both cases it's
+necessary to teach every interviewer and to establish perfectly the process of
+data collection.
+
+To analyze a sample is always going to be simpler than analyzing the whole population, but this comes at the cost of possible errors due to the sample collection randomness
+
+To analyze a sample is always going to be simpler than analyzing the whole
+population, but this comes at the cost of possible errors due to the sample
+collection randomness. Errors that must be monitored by the use of the theory of probability calculus.
+
+\subsection{Statistic estimators}
+
+An estimator it's an statistic that approximates to a parameter $\theta$.
+
+The mean:
+
+\begin{equation}
+    \bar{X} = \frac{1}{n(m)} \sum_{i \in m} X_i
+\end{equation}
+
+The quasivariance:
+
+\begin{equation}
+    S^2 = \frac{1}{n(m) - 1} \sum_{i \in m} (X_i - \bar{X})^2
+\end{equation}
+
+Population mean stimator:
+\begin{equation}
+    \mu = \frac{1}{N} \sum_{i = 1}^2 X_i
+\end{equation}
+
+Population variance stimator:
+\begin{equation}
+    \sigma^2 = \frac{1}{N} \sum_{i = 1}^N (X_i - \mu)^2
+\end{equation}
+
+\section{Location and dispersion measurements}
+
+One of the main goals of the descriptive statistics is to resume the
+information contained in a great data set into a few numeric values to achieve
+conclusions or compare data between multiple populations.
+
+\section{Exercises}
+
+\subsection{Exercise 1}
+
+In the year 2005, the mean grade in the schools of the Aragon provinces are the
+next:
+
+\begin{table}[h]
+    \centering
+    \caption{Mean grades per province of Aragon and number of students}
+    \begin{tabular}{lcc}
+        \toprule
+        Province & Students & Mean grade \\
+        \midrule
+        Teruel      & 1400  & 5.5 \\
+        Huesca      & 1200  & 6.0 \\
+        Zaragoza    & 3200  & 6.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Which is the mean grade of the students in Aragon.
+
+Solution:
+
+\begin{equation}
+    \bar{X}_{Aragon} = \frac{5.5 \cdot 1400 + 6.0 \cdot 1200 + 6.5 \cdot 3200}{1400 + 1200 + 3200}= 6.16
+\end{equation}
+
+The mean grade of the Aragon students is 6.16 points.
+
+\subsection{Exercise 2}
+
+The heart rate of some athletes is measured after a hard workout with a heart
+rate monitor. The following tables is obtained:
+
+\begin{table}[h]
+    \centering
+    \caption{Heart rate frequency table of the monitored athletes}
+    \begin{tabular}{lc}
+        \toprule
+        Heart rate & Frequency \\
+        \midrule
+        $[65-70)$ & 0 \\
+        $[70-75)$ & 3 \\
+        $[75-80)$ & 3 \\
+        $[80-85)$ & 7 \\
+        $[85-90)$ & 10 \\
+        $[90-95)$ & 12 \\
+        $[95-100)$ & 8 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+We need to determine:
+
+\begin{itemize}
+    \item{The representative of each class}
+    \item{Centrality measurements}
+\end{itemize}
+
+Solution:
+
+For the given intervals we suppose that each athlete's heart rate is equally
+distributed. So we take each interval's central value to calculate the
+statistics.
+
+\begin{table}[h]
+    \centering
+    \caption{Calculated mean interval}
+    \begin{tabular}{lcc}
+        \toprule
+        Heart rate & Frequency & Range mean\\
+        \midrule
+        $[65-70)$ & 0     & 67.5 \\
+        $[70-75)$ & 3     & 72.5 \\
+        $[75-80)$ & 3     & 77.5 \\
+        $[80-85)$ & 7     & 82.5 \\
+        $[85-90)$ & 10    & 87.5 \\
+        $[90-95)$ & 12    & 92.5 \\
+        $[95-100)$ & 8    & 97.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Then we can multiply each rate mean by the freq and divide all by the sample
+size.
+
+Mean:
+\begin{equation}
+    \bar{X} =
+    \frac{
+    0 \cdot 67.5 + 3 \cdot 72.5 + 3 \cdot 77.5 +
+    7 \cdot 82.5 + 10 \cdot 87.5 + 12 \cdot 92.5 + 8 \cdot 97.5}
+    {0 + 3 + 3 + 7 + 10 + 12 + 8}
+    = 88.20
+\end{equation}
+
+To calculate the mediane of a data set, we must consider if the data set size
+$N$ is even or odd. In case of a odd size we take $N / 2 +1^{th}$ element of the
+list. In case of even size we take the $N / 2^{th}$ and $N / 2 + 1^{th}$
+element's mean.
+
+\begin{table}[h]
+    \centering
+    \caption{Calculated mean interval}
+    \begin{tabular}{lcc}
+        \toprule
+        Heart rate & Frequency & Accumulated freq. \\
+        \midrule
+        $[65-70)$ & 0     & 0 \\
+        $[70-75)$ & 3     & 3 \\
+        $[75-80)$ & 3     & 6 \\
+        $[80-85)$ & 7     & 13 \\
+        $[85-90)$ & 10    & 23 \\
+        $[90-95)$ & 12    & 35 \\
+        $[95-100)$ & 8    & 43 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+In this case, given our odd sample size, we must take the $43 / 2 + 1 = 22^{th}$ element whic is in the range of $[85-90)$ heart beats per minute.
+
+So the median for this sample is:
+
+$Median = 
+
+% Maybe I need to add one more part: Examples.  Set style and color later.
+
+\section{Citation}
+
+This is a citation\cite{Eg}.
+
+\newpage
+
+% ------------------------------------------------------------------------------
+% Reference and Cited Works
+% ------------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran} \bibliography{References.bib}
+
+% ------------------------------------------------------------------------------
+
+\end{document}

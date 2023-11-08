@@ -1,0 +1,78 @@
+= USER MANAGEMENT =
+
+== SCOPE ==
+
+This guide aims to collect the tipical user and group
+adding/modifiying/deleting operations in the next OSs:
+- Archlinux
+- Debian
+- Ubuntu
+
+== ARCH LINUX ==
+
+This instructions are taken from archlinux wiki.
+
+https://wiki.archlinux.org/title/Users_and_groups\#User_management
+
+In other OS as debian this commands should also work, but I didn't test them all yet.
+
+
+=== Creating a new user ===
+
+the general structure:
+
+`# useradd -m -G` _additional Groups_ `-s login_shell` _username_
+
+The simplest example:
+
+`# useradd -m andoitzcp`
+
+Creating a password for the new user:
+
+`# passwd andoitzcp`
+
+=== Modifying existing users ===
+
+To change a user home directory:
+
+`# usermod -d /my/new/home -m` _username_
+
+To change a user's login name:
+
+`# usemod -l` _newname_ _oldname_
+
+=== Group manamgement ===
+
+Display group membership:
+
+`$ groups` _user_
+
+If _user_ is ommited the current username groups are displayed.
+
+To display additional detail about a user:
+
+`$ id` _user_
+
+To list all groups in the system:
+
+`$ cat /etc/groups`
+
+Create a new group:
+
+`# groupadd` _group_
+
+To add an user to a group:
+
+`# gpasswd -a` _user_ _group_
+
+Alternatively:
+
+`# usermod -aG` _additional-groups_ _username_
+
+Rename existing group:
+
+`# groupmod -n` _new-group_ _old-group_
+
+Delete group:
+
+`# groupdel` _group_

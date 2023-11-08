@@ -54,5 +54,6 @@ sleep 1
 
 
 $HOME/gh_repos/dwm/dwmbar.sh &
-nitrogen --restart &
+nitrogen --restore &
+picom &
 exec dwm

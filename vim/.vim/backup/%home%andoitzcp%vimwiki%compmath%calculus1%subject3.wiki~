@@ -1,0 +1,22 @@
+= Number Classes and Relations =
+
+Naturals:
+
+{{$
+\mathbb{N}:= \{1,2,3,\cdots\}
+}}$
+
+Integers:
+
+{{$
+\mathbb{Z}:= \{\cdots,-3,-2,-1,0,1,2,3,\cdots\}
+}}$
+
+which are the union of $ -1 \cdot \mathbb{N} \cup \emptyset \cup \mathbb{N} $
+
+Rationals:
+
+
+{{$
+\mathbb{Q}:= \{1,2,3,\cdots\}
+}}$
