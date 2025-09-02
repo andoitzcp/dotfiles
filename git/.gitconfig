@@ -1,3 +1,7 @@
 [user]
 	email = andoitzcp@gmail.com
 	name = andoitzcp
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true

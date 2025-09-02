@@ -1,2 +1,3 @@
-./.vim/backup/*
-./.vim/plugged/*
+vim/.vim/backup/*
+vim/.vim/plugged/*
+

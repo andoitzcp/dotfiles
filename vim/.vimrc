@@ -123,16 +123,18 @@ let g:vimtex_view_method = 'zathura'
 call plug#begin()
 
 Plug 'preservim/nerdtree'
-Plug 'preservim/vimux'
+" Plug 'preservim/vimux'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'vimwiki/vimwiki'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'vimwiki/vimwiki'
 Plug '42Paris/42Header'
 Plug 'andoitzcp/Myheader'
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
-Plug 'brennier/quicktex'
+" Plug 'brennier/quicktex'
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
 
 
 call plug#end()
